@@ -400,7 +400,13 @@ const heroUrl = (w: number) =>
       position: relative;
       inset: auto;
       width: 100%;
-      aspect-ratio: 4 / 5;
+      /* Recorte mais fechado no carro para cortar o excesso de fundo
+         escuro acima e abaixo dele na foto original. */
+      aspect-ratio: 1 / 1;
+    }
+
+    .hero-img img {
+      object-position: center 52%;
     }
 
     .hero-img::after {
