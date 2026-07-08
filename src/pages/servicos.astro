@@ -1,62 +1,230 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import data from '../data/portfolio.json';
+import { withBase } from '../lib/url';
+
+// O processo eh uma sequencia real — por isso a numeracao faz sentido aqui.
+const processo = [
+  {
+    passo: '01',
+    titulo: 'A história primeiro',
+    descricao:
+      'Uma conversa sobre o carro: como chegou até você, o que já viveu, o que ele significa. É essa história que define o ensaio.',
+  },
+  {
+    passo: '02',
+    titulo: 'Locação e luz',
+    descricao:
+      'Escolho um cenário da mesma época do carro — fachada, estrada, galpão — e a hora do dia em que a luz trabalha a favor do verniz.',
+  },
+  {
+    passo: '03',
+    titulo: 'O ensaio',
+    descricao:
+      'Sessão sem pressa: o carro inteiro, os detalhes que só o dono conhece e, se ele topar, o dono junto. Ninguém posa; o carro já sabe.',
+  },
+  {
+    passo: '04',
+    titulo: 'Revelação',
+    descricao:
+      'Tratamento fino imagem a imagem, galeria digital para o seu arquivo e impressões fine art para a parede da garagem — ou da sala.',
+  },
+];
 ---
 
-<Layout title="Servicos | LENTE&CHASSI">
-  <section class="container header-section">
-    <p class="eyebrow">Servicos</p>
-    <h1>Como posso ajudar seu projeto</h1>
+<Layout
+  title="Ensaios | Aragão — Fotografia de clássicos"
+  description="Ensaios de coleção, cobertura de encontros de antigos e restaurações documentadas — como funciona cada trabalho."
+>
+  <section class="container abertura">
+    <p class="plate reveal">Ensaios</p>
+    <h1 class="reveal" style="--delay: 100ms">
+      Três maneiras de <em>guardar</em> um clássico.
+    </h1>
+    <p class="lede reveal" style="--delay: 200ms">
+      Trabalho com colecionadores, clubes de antigomobilismo e oficinas de
+      restauração. Todo ensaio começa pela história do carro.
+    </p>
   </section>
 
-  <section class="container service-grid">
+  <section class="container tipos">
     {
-      data.servicos.map((s) => (
-        <div class="service-card">
-          <h3>{s.titulo}</h3>
-          <p>{s.descricao}</p>
-        </div>
+      data.ensaios.map((e, i) => (
+        <article class="tipo reveal" style={`--delay: ${i * 120}ms`}>
+          <h2>{e.titulo}</h2>
+          <p>{e.descricao}</p>
+        </article>
       ))
     }
+  </section>
+
+  <section class="processo-faixa">
+    <div class="container">
+      <p class="plate reveal">Como funciona</p>
+      <ol class="processo">
+        {
+          processo.map((p, i) => (
+            <li class="etapa reveal" style={`--delay: ${i * 120}ms`}>
+              <span class="passo">{p.passo}</span>
+              <h3>{p.titulo}</h3>
+              <p>{p.descricao}</p>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="container chamada reveal">
+    <h2>O próximo da fila pode ser <em>o seu</em>.</h2>
+    <div class="acoes">
+      <a class="cta" href={withBase('/contrate')}>Formatos e contratação →</a>
+      <a class="cta secundario" href={withBase('/#contato')}>Começar a conversa</a>
+    </div>
   </section>
 </Layout>
 
 <style>
-  .header-section {
-    padding: 64px 24px 32px;
+  .abertura {
+    padding-top: 96px;
+    padding-bottom: 72px;
   }
 
   h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    margin-top: 12px;
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    max-width: 16ch;
+    margin: 28px 0 22px;
   }
 
-  .service-grid {
+  .lede {
+    color: var(--cromo);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .tipos {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 24px;
-    padding-bottom: 64px;
+    padding-bottom: 110px;
   }
 
-  .service-card {
-    border: 1px solid var(--border);
-    padding: 28px;
+  .tipo {
+    border: 1px solid var(--linha);
+    padding: 36px 30px;
+    transition: border-color 0.3s ease;
   }
 
-  .service-card h3 {
-    font-size: 1.15rem;
-    margin-bottom: 12px;
+  .tipo:hover {
+    border-color: var(--latao);
   }
 
-  .service-card p {
-    color: var(--fg-muted);
-    font-size: 0.9rem;
-    line-height: 1.5;
+  .tipo h2 {
+    font-size: 1.5rem;
+    margin-bottom: 14px;
   }
 
-  @media (max-width: 800px) {
-    .service-grid {
+  .tipo p {
+    color: var(--cromo);
+    font-size: 0.92rem;
+    margin: 0;
+  }
+
+  .processo-faixa {
+    border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha);
+    background: var(--fosso);
+    padding: 96px 0;
+  }
+
+  .processo {
+    list-style: none;
+    margin: 56px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 28px;
+  }
+
+  .passo {
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
+    letter-spacing: 0.2em;
+    color: var(--latao);
+    display: block;
+    border-bottom: 1px solid var(--linha);
+    padding-bottom: 14px;
+    margin-bottom: 18px;
+  }
+
+  .etapa h3 {
+    font-size: 1.25rem;
+    margin-bottom: 10px;
+  }
+
+  .etapa p {
+    color: var(--cromo);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  .chamada {
+    padding-top: 110px;
+    text-align: left;
+  }
+
+  .chamada h2 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    max-width: 18ch;
+    margin-bottom: 36px;
+  }
+
+  .acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .cta.secundario {
+    border-color: var(--linha);
+    color: var(--cromo);
+  }
+
+  .cta.secundario:hover {
+    background: transparent;
+    border-color: var(--latao);
+    color: var(--marfim);
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--marfim);
+    border: 1px solid var(--latao);
+    padding: 14px 26px;
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .cta:hover {
+    background: var(--rubi);
+    border-color: var(--rubi);
+  }
+
+  @media (max-width: 900px) {
+    .tipos,
+    .processo {
       grid-template-columns: 1fr;
+    }
+
+    .processo {
+      gap: 32px;
     }
   }
 </style>

@@ -1,8 +1,13 @@
-# Fotografo de Carros — Prototipo de Arquitetura
+# Aragão — Fotografia de Carros Antigos (Prototipo de Arquitetura)
 
-Prototipo funcional (Astro) demonstrando a arquitetura recomendada para um site
-de fotografia automotiva com area de administrador para gerenciar
-portfolio/imagens da home.
+Prototipo funcional (Astro) de um site para fotografo artistico de carros
+antigos (colecionadores, encontros de classicos, restauracoes), com area de
+administrador prevista para gerenciar portfolio/imagens da home.
+
+Direcao de design: paleta "garagem de colecao" (verde-ingles profundo, marfim,
+cromo, vermelho-verniz, latao), tipografia Fraunces/Archivo/Chivo Mono e a
+assinatura visual de "plaquetas de identificacao" (modelo · ano) em cada foto,
+como as placas rebitadas no cofre do motor.
 
 ## Estrutura
 
@@ -33,7 +38,8 @@ customizado (nao e tema pronto), entao a identidade visual do fotografo fica
 livre.
 
 **Imagens via CDN de imagem** (Cloudinary/imgix/Cloudflare Images — no mock
-uso URLs de exemplo do Cloudinary). Cada `<img>` recebe a versao ja
+uso fotos reais de carros antigos servidas pelo CDN do Unsplash, com
+`srcset`/`sizes` por parametro de URL). Cada `<img>` recebe a versao ja
 redimensionada, no formato certo (AVIF/WebP) e com lazy loading. Isso importa
 mais para a velocidade do que a escolha do framework.
 

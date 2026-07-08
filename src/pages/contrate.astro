@@ -1,0 +1,327 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+// Formatos de contratacao por tipo de cliente. Em producao, isto tambem
+// pode migrar para o CMS junto com o portfolio.
+const pacotes = [
+  {
+    publico: 'Colecionador',
+    titulo: 'Retrato de clássico',
+    descricao:
+      'O ensaio autoral de um único carro — o formato que abre este site. Para quem quer o seu clássico na parede, não só no anúncio.',
+    entrega: [
+      'Locação e horário de luz escolhidos para o carro',
+      '25 imagens tratadas em alta resolução',
+      'Galeria digital privada para a família',
+      'Uma impressão fine art 60×90 incluída',
+    ],
+  },
+  {
+    publico: 'Coleções',
+    titulo: 'Acervo documentado',
+    descricao:
+      'A coleção inteira catalogada com padrão de museu: cada carro com sua ficha fotográfica. Vale para seguro, venda futura ou memória de família.',
+    entrega: [
+      'Ficha por veículo: frente, perfil, interior e detalhes',
+      'Padrão consistente entre todos os carros',
+      'Arquivo organizado por modelo e ano',
+      'Atualização anual opcional a cada carro novo',
+    ],
+  },
+  {
+    publico: 'Lojas de clássicos',
+    titulo: 'Vitrine',
+    descricao:
+      'Pacote recorrente para quem vende veículos antigos: o estoque sempre fotografado com o mesmo cuidado que fez o cliente se apaixonar pelo carro.',
+    entrega: [
+      'Fotos de anúncio padronizadas de cada carro do estoque',
+      'Um ensaio autoral por mês do carro-destaque da loja',
+      'Entrega em até 72 horas por veículo',
+      'Direitos de uso comercial inclusos',
+    ],
+  },
+  {
+    publico: 'Clubes & eventos',
+    titulo: 'Encontro',
+    descricao:
+      'Cobertura artística de encontros de antigos, exposições e passeios de clube — as máquinas, os detalhes e as pessoas que as mantêm na rua.',
+    entrega: [
+      'Cobertura completa do evento',
+      'Galeria pública para divulgação do clube',
+      'Primeira seleção editada em 48 horas',
+      'Condições especiais para participantes que quiserem ensaio próprio',
+    ],
+  },
+  {
+    publico: 'Oficinas',
+    titulo: 'Restauração em capítulos',
+    descricao:
+      'O projeto de restauração acompanhado do início ao fim. No dia da entrega, o dono recebe o carro — e a história de como ele voltou a viver.',
+    entrega: [
+      'Visitas programadas ao longo da restauração',
+      'Antes, durante e depois de cada etapa',
+      'Álbum impresso de entrega para o cliente da oficina',
+      'Material de divulgação do trabalho da equipe',
+    ],
+  },
+  {
+    publico: 'Marcas & editorial',
+    titulo: 'Campanha',
+    descricao:
+      'Produção para marcas, revistas e projetos do universo vintage — de peças de época a campanhas que pedem um clássico como personagem.',
+    entrega: [
+      'Direção de arte construída em conjunto',
+      'Produção de locação e veículos quando necessário',
+      'Licenciamento conforme o uso da campanha',
+    ],
+  },
+];
+
+const combinados = [
+  {
+    titulo: 'Valores sob consulta',
+    texto:
+      'Cada carro, coleção e agenda são únicos — o orçamento é fechado depois da primeira conversa, sem surpresa no fim.',
+  },
+  {
+    titulo: 'Onde atendo',
+    texto:
+      'Base na região de Campinas (SP), com atendimento em todo o estado. Outras praças entram no orçamento como deslocamento.',
+  },
+  {
+    titulo: 'Direitos de uso',
+    texto:
+      'Colecionadores recebem uso pessoal completo. Lojas, oficinas e marcas já contratam com os direitos comerciais do seu formato.',
+  },
+  {
+    titulo: 'Prazo de entrega',
+    texto:
+      'Ensaios individuais em até 15 dias; formatos recorrentes têm prazo próprio, combinado em contrato.',
+  },
+];
+---
+
+<Layout
+  title="Contrate | Aragão — Fotografia de clássicos"
+  description="Formatos de contratação para colecionadores, coleções, lojas de veículos antigos, clubes, oficinas de restauração e marcas."
+>
+  <section class="container abertura">
+    <p class="plate reveal">Contrate</p>
+    <h1 class="reveal" style="--delay: 100ms">
+      Para cada garagem, <em>um formato</em>.
+    </h1>
+    <p class="lede reveal" style="--delay: 200ms">
+      Do colecionador com um único carro à loja com a vitrine cheia — cada
+      formato foi desenhado para quem vive os clássicos de um jeito diferente.
+    </p>
+  </section>
+
+  <section class="container pacotes">
+    {
+      pacotes.map((p, i) => (
+        <article class="pacote reveal" style={`--delay: ${(i % 2) * 120}ms`}>
+          <span class="plate publico">{p.publico}</span>
+          <h2>{p.titulo}</h2>
+          <p class="descricao">{p.descricao}</p>
+          <ul>
+            {p.entrega.map((item) => (
+              <li>{item}</li>
+            ))}
+          </ul>
+        </article>
+      ))
+    }
+  </section>
+
+  <section class="combinados-faixa">
+    <div class="container">
+      <p class="plate reveal">Combinados de garagem</p>
+      <div class="combinados">
+        {
+          combinados.map((c, i) => (
+            <div class="combinado reveal" style={`--delay: ${i * 100}ms`}>
+              <h3>{c.titulo}</h3>
+              <p>{c.texto}</p>
+            </div>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="container chamada reveal">
+    <h2>Conte <em>a história</em> do seu carro.</h2>
+    <p class="lede">
+      Modelo, ano e o que ele significa para você — o orçamento sai da mesma
+      conversa.
+    </p>
+    <div class="acoes">
+      <a class="cta" href="https://wa.me/5519987222761"
+        >Chamar no WhatsApp →</a
+      >
+      <a class="cta secundario" href="mailto:contato@aragaoauto.com"
+        >contato@aragaoauto.com</a
+      >
+    </div>
+  </section>
+</Layout>
+
+<style>
+  .abertura {
+    padding-top: 96px;
+    padding-bottom: 80px;
+  }
+
+  h1 {
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    max-width: 16ch;
+    margin: 28px 0 22px;
+  }
+
+  .lede {
+    color: var(--cromo);
+    max-width: 48ch;
+    margin: 0;
+  }
+
+  .pacotes {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .pacote {
+    border: 1px solid var(--linha);
+    padding: 40px 34px;
+    transition: border-color 0.3s ease;
+  }
+
+  .pacote:hover {
+    border-color: var(--latao);
+  }
+
+  .publico {
+    margin-bottom: 22px;
+  }
+
+  .pacote h2 {
+    font-size: 1.7rem;
+    margin-bottom: 14px;
+  }
+
+  .descricao {
+    color: var(--cromo);
+    font-size: 0.94rem;
+    margin: 0 0 26px;
+  }
+
+  .pacote ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .pacote li {
+    font-size: 0.86rem;
+    color: var(--marfim);
+    padding: 11px 0;
+    border-top: 1px solid var(--linha);
+  }
+
+  .pacote li::before {
+    content: '—';
+    color: var(--latao);
+    margin-right: 12px;
+  }
+
+  .combinados-faixa {
+    margin-top: 120px;
+    border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha);
+    background: var(--fosso);
+    padding: 96px 0;
+  }
+
+  .combinados {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 40px 28px;
+    margin-top: 56px;
+  }
+
+  .combinado h3 {
+    font-size: 1.2rem;
+    margin-bottom: 10px;
+  }
+
+  .combinado p {
+    color: var(--cromo);
+    font-size: 0.88rem;
+    margin: 0;
+  }
+
+  .chamada {
+    padding-top: 110px;
+  }
+
+  .chamada h2 {
+    font-size: clamp(2rem, 5vw, 3.4rem);
+    max-width: 18ch;
+    margin-bottom: 18px;
+  }
+
+  .chamada .lede {
+    margin-bottom: 36px;
+  }
+
+  .acoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: var(--font-mono);
+    font-size: 0.78rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--marfim);
+    border: 1px solid var(--latao);
+    padding: 14px 26px;
+    transition:
+      background 0.3s ease,
+      border-color 0.3s ease;
+  }
+
+  .cta:hover {
+    background: var(--rubi);
+    border-color: var(--rubi);
+  }
+
+  .cta.secundario {
+    border-color: var(--linha);
+    color: var(--cromo);
+    text-transform: none;
+    letter-spacing: 0.08em;
+  }
+
+  .cta.secundario:hover {
+    background: transparent;
+    border-color: var(--latao);
+    color: var(--marfim);
+  }
+
+  @media (max-width: 900px) {
+    .pacotes {
+      grid-template-columns: 1fr;
+    }
+
+    .combinados {
+      grid-template-columns: 1fr;
+      gap: 32px;
+    }
+  }
+</style>

@@ -4,24 +4,41 @@ import Gallery from '../components/Gallery.astro';
 import data from '../data/portfolio.json';
 ---
 
-<Layout title="Portfolio | LENTE&CHASSI">
-  <section class="container header-section">
-    <p class="eyebrow">Portfolio</p>
-    <h1>Trabalhos selecionados</h1>
+<Layout
+  title="Acervo | Aragão — Fotografia de clássicos"
+  description="Catálogo de ensaios: cada carro antigo com ficha própria — modelo, ano e o lugar onde a luz o encontrou."
+>
+  <section class="container abertura">
+    <p class="plate reveal">Acervo</p>
+    <h1 class="reveal" style="--delay: 100ms">
+      Cada carro entra no catálogo <em>com ficha própria</em>.
+    </h1>
+    <p class="lede reveal" style="--delay: 200ms">
+      Modelo, ano e o lugar onde a luz o encontrou. Como numa coleção de
+      verdade, nada aqui é genérico — cada chassi tem nome.
+    </p>
   </section>
 
   <section class="container">
-    <Gallery images={data.destaques} />
+    <Gallery images={data.acervo} />
   </section>
 </Layout>
 
 <style>
-  .header-section {
-    padding: 64px 24px 32px;
+  .abertura {
+    padding-top: 96px;
+    padding-bottom: 80px;
   }
 
   h1 {
-    font-size: clamp(1.8rem, 4vw, 2.6rem);
-    margin-top: 12px;
+    font-size: clamp(2.2rem, 5.5vw, 4.2rem);
+    max-width: 18ch;
+    margin: 28px 0 22px;
+  }
+
+  .lede {
+    color: var(--cromo);
+    max-width: 48ch;
+    margin: 0;
   }
 </style>

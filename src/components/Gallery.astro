@@ -1,12 +1,17 @@
 ---
-// Em producao, `images` vem do CMS headless (Payload/Sanity) via query
-// feita em build-time (getStaticProps equivalente do Astro).
-// As urls ja chegam otimizadas pelo CDN de imagem (Cloudinary/imgix):
-// resize, formato (AVIF/WebP) e qualidade definidos por parametro na URL.
+// Galeria-catalogo: cada foto entra como um item de acervo, com plaqueta
+// de identificacao (modelo · ano) e nota de contexto.
+// Em producao, `images` vem do CMS headless (Payload/Sanity) em build-time;
+// as URLs base do Unsplash recebem largura/qualidade via srcset aqui.
 interface GalleryImage {
   src: string;
   alt: string;
-  tag?: string;
+  modelo: string;
+  ano: string;
+  nota?: string;
+  /** 'portrait' | 'landscape' — string simples porque o mock vem de JSON */
+  orient: string;
+  span: number;
 }
 
 interface Props {
@@ -14,76 +19,139 @@ interface Props {
 }
 
 const { images } = Astro.props;
+
+const url = (src: string, w: number) => `${src}?auto=format&fit=crop&q=80&w=${w}`;
 ---
 
-<div class="gallery">
+<div class="catalogo">
   {
     images.map((img, i) => (
-      <figure class={i === 0 ? 'featured' : ''}>
-        <img
-          src={img.src}
-          alt={img.alt}
-          loading={i < 2 ? 'eager' : 'lazy'}
-          decoding="async"
-          width="1200"
-          height="800"
-        />
-        {img.tag && <figcaption>{img.tag}</figcaption>}
+      <figure
+        class={`item reveal ${img.orient}`}
+        style={`--span: ${img.span}; --delay: ${(i % 3) * 110}ms`}
+      >
+        <div class="moldura">
+          <img
+            src={url(img.src, 1100)}
+            srcset={`${url(img.src, 700)} 700w, ${url(img.src, 1100)} 1100w, ${url(img.src, 1600)} 1600w`}
+            sizes="(max-width: 700px) 100vw, 55vw"
+            alt={img.alt}
+            loading={i < 2 ? 'eager' : 'lazy'}
+            decoding="async"
+          />
+        </div>
+        <figcaption>
+          <span class="plate ficha">
+            <span class="modelo">{img.modelo}</span>
+            <span class="ano">{img.ano}</span>
+          </span>
+          {img.nota && <span class="nota">{img.nota}</span>}
+        </figcaption>
       </figure>
     ))
   }
 </div>
 
 <style>
-  .gallery {
+  .catalogo {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 4px;
+    grid-template-columns: repeat(12, 1fr);
+    column-gap: 28px;
+    row-gap: 64px;
+    align-items: start;
   }
 
-  figure {
-    position: relative;
+  .item {
+    grid-column: span var(--span);
     margin: 0;
+  }
+
+  /* Estagger editorial: itens pares descem um pouco, como fotos numa mesa */
+  .item:nth-child(even) {
+    margin-top: 48px;
+  }
+
+  .moldura {
     overflow: hidden;
-    aspect-ratio: 4 / 3;
-    background: var(--bg-elevated);
+    background: var(--fosso);
   }
 
-  figure.featured {
-    grid-column: span 2;
-    grid-row: span 2;
-    aspect-ratio: 4 / 3;
+  .portrait .moldura {
+    aspect-ratio: 4 / 5;
   }
 
-  figure img {
+  .landscape .moldura {
+    aspect-ratio: 3 / 2;
+  }
+
+  .moldura img {
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.5s ease;
+    filter: saturate(0.88);
+    transition:
+      transform 1.1s cubic-bezier(0.22, 1, 0.36, 1),
+      filter 0.6s ease;
   }
 
-  figure:hover img {
-    transform: scale(1.04);
+  .item:hover .moldura img {
+    transform: scale(1.035);
+    filter: saturate(1.05);
   }
 
   figcaption {
-    position: absolute;
-    left: 12px;
-    bottom: 12px;
-    font-size: 0.7rem;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    background: rgba(0, 0, 0, 0.55);
-    padding: 4px 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 16px;
+  }
+
+  .ficha {
+    max-width: 100%;
+    transition: border-color 0.3s ease;
+  }
+
+  .item:hover .ficha {
+    border-color: var(--latao);
+  }
+
+  .ficha .modelo {
+    color: var(--marfim);
+  }
+
+  .ficha .ano {
+    color: var(--latao);
+  }
+
+  .nota {
+    font-size: 0.82rem;
+    color: var(--cromo);
+    max-width: 38ch;
+    line-height: 1.5;
   }
 
   @media (max-width: 900px) {
-    .gallery {
-      grid-template-columns: repeat(2, 1fr);
+    .catalogo {
+      column-gap: 18px;
+      row-gap: 48px;
     }
-    figure.featured {
-      grid-column: span 2;
-      grid-row: span 1;
+
+    /* Em telas medias, alterna 7/5 vira 6/6 para nao espremer retratos */
+    .item {
+      grid-column: span 6;
+    }
+
+    .item:nth-child(even) {
+      margin-top: 36px;
+    }
+  }
+
+  @media (max-width: 640px) {
+    .item,
+    .item:nth-child(even) {
+      grid-column: 1 / -1;
+      margin-top: 0;
     }
   }
 </style>

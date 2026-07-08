@@ -1,44 +1,188 @@
 {
-  "_comment": "Mock de dados. Em producao este arquivo eh substituido por uma chamada ao CMS headless (Payload/Sanity) feita em build-time. As URLs de imagem ja vem otimizadas pelo CDN.",
-  "destaques": [
+  "_comment": "Mock de dados. Em producao este arquivo eh substituido por uma chamada ao CMS headless (Payload/Sanity) em build-time. 'src' sem parametro de largura: o componente Gallery adiciona w/q via srcset. Imagens: Unsplash (licenca livre).",
+  "hero": {
+    "src": "https://images.unsplash.com/photo-1523828446771-151afb8374f1",
+    "alt": "Mercedes-Benz 280 SL Pagode verde-inglês emergindo da escuridão, reflexos de luz no cromo",
+    "modelo": "Mercedes-Benz 280 SL \"Pagode\"",
+    "ano": "1967",
+    "nota": "Ensaio noturno"
+  },
+  "marquee": [
+    "Pagode · 1967",
+    "XJ6 Série I · 1973",
+    "Fusca 1300 · 1972",
+    "Corvette C1 · 1962",
+    "300 SL · 1955",
+    "Chevrolet 3100 · 1940",
+    "Impala · 1963",
+    "Mustang · 1965",
+    "Chevelle SS · 1967",
+    "Porsche 911 · 1973"
+  ],
+  "acervo": [
     {
-      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1200/samples/imagecon-group.jpg",
-      "alt": "Carro esportivo preto em estudio, iluminacao dramatica",
-      "tag": "Estudio"
+      "src": "https://images.unsplash.com/photo-1523828446771-151afb8374f1",
+      "alt": "Mercedes-Benz 280 SL Pagode verde sob luz dramática em fundo escuro",
+      "modelo": "Mercedes-Benz 280 SL",
+      "ano": "1967",
+      "nota": "Ensaio noturno — o verde-inglês some no escuro, sobra o cromo",
+      "orient": "portrait",
+      "span": 5,
+      "destaque": false
     },
     {
-      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/landscapes/nature-mountains.jpg",
-      "alt": "Carro classico ao entardecer em estrada de montanha",
-      "tag": "Externa"
+      "src": "https://images.unsplash.com/photo-1484687742385-1249620c2687",
+      "alt": "Jaguar XJ6 verde-sálvia de perfil diante de parede de tijolos aparentes",
+      "modelo": "Jaguar XJ6 Série I",
+      "ano": "1973",
+      "nota": "Centro histórico — tijolo e verniz, quase a mesma idade",
+      "orient": "landscape",
+      "span": 7,
+      "destaque": true
     },
     {
-      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/landscapes/architecture-signs.jpg",
-      "alt": "Detalhe de roda e acabamento",
-      "tag": "Detalhe"
+      "src": "https://images.unsplash.com/photo-1522775644932-1e20a2479066",
+      "alt": "Volante e painel vermelhos de Corvette C1 conversível em close",
+      "modelo": "Chevrolet Corvette C1",
+      "ano": "1962",
+      "nota": "Detalhe do volante — verniz rubi e instrumentos originais",
+      "orient": "landscape",
+      "span": 7,
+      "destaque": true
     },
     {
-      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/animals/three-dogs.jpg",
-      "alt": "Colecionador ao lado do veiculo restaurado",
-      "tag": "Colecionador"
+      "src": "https://images.unsplash.com/photo-1536168483275-f5736f5c844b",
+      "alt": "Volkswagen Fusca verde estacionado diante de casa de telhado colonial",
+      "modelo": "Volkswagen Fusca 1300",
+      "ano": "1972",
+      "nota": "Interior do Brasil — o clássico que toda família conheceu",
+      "orient": "portrait",
+      "span": 5,
+      "destaque": true
     },
     {
-      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/food/dessert.jpg",
-      "alt": "Interior em couro, foco no painel",
-      "tag": "Interior"
+      "src": "https://images.unsplash.com/photo-1453856908826-6bbeda0f8490",
+      "alt": "Picape Chevrolet 3100 azul com pátina entre videiras ao entardecer",
+      "modelo": "Chevrolet 3100",
+      "ano": "1940",
+      "nota": "Fim de tarde no vinhedo — pátina que nenhuma pintura imita",
+      "orient": "portrait",
+      "span": 5,
+      "destaque": true
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1474039369477-5e74ff1f0e57",
+      "alt": "Mercedes-Benz 300 SL prata com portas asa de gaivota abertas em museu",
+      "modelo": "Mercedes-Benz 300 SL",
+      "ano": "1955",
+      "nota": "Asas de gaivota — concreto, prata e silêncio",
+      "orient": "landscape",
+      "span": 7,
+      "destaque": true
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1532751203793-812308a10d8e",
+      "alt": "Frente de Cadillac LaSalle 1939 em preto e branco, faróis acesos na penumbra",
+      "modelo": "Cadillac LaSalle",
+      "ano": "1939",
+      "nota": "Prata e sombra — estudo em preto e branco",
+      "orient": "portrait",
+      "span": 5,
+      "destaque": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1486449259016-a15ff636844a",
+      "alt": "Roda com pneu faixa branca e calota cromada de sedã americano dos anos 50 sobre grama",
+      "modelo": "Oldsmobile Ninety-Eight",
+      "ano": "1959",
+      "nota": "Faixa branca — o detalhe que data uma década",
+      "orient": "landscape",
+      "span": 7,
+      "destaque": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1544538814-f0bc8c08e9e9",
+      "alt": "Farol redondo cromado de Porsche 911 azul-céu em close",
+      "modelo": "Porsche 911",
+      "ano": "1973",
+      "nota": "Estudo de farol — vidro estriado, cromo e céu",
+      "orient": "portrait",
+      "span": 4,
+      "destaque": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1583450119183-66febdb2f409",
+      "alt": "Emblema Chevelle e faróis duplos de Chevrolet vermelha ao sol",
+      "modelo": "Chevrolet Chevelle",
+      "ano": "1967",
+      "nota": "Cromo ao sol — a tipografia que Detroit assinava",
+      "orient": "portrait",
+      "span": 4,
+      "destaque": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1579211897986-63e1fcd564e0",
+      "alt": "Ford Mustang 1965 vermelho sob árvores de outono com folhas no chão",
+      "modelo": "Ford Mustang Hardtop",
+      "ano": "1965",
+      "nota": "Outono — vermelho contra folhas secas",
+      "orient": "portrait",
+      "span": 4,
+      "destaque": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1571025597614-91b22b54d8cc",
+      "alt": "Painel, volante e câmbio de Chevelle SS restaurada, cromo e couro preto",
+      "modelo": "Chevrolet Chevelle SS",
+      "ano": "1967",
+      "nota": "Painel e câmbio — restauração de concurso",
+      "orient": "landscape",
+      "span": 7,
+      "destaque": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1587750113469-d2ba02441e8f",
+      "alt": "Chevrolet Impala preta rebaixada em estacionamento vazio ao pôr do sol",
+      "modelo": "Chevrolet Impala",
+      "ano": "1963",
+      "nota": "Céu cor-de-rosa — o asfalto como estúdio",
+      "orient": "portrait",
+      "span": 5,
+      "destaque": true
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1511407401960-0ee203836665",
+      "alt": "Volkswagen Fusca verde-água de perfil diante de fachada amarela com portas de madeira",
+      "modelo": "Volkswagen Fusca",
+      "ano": "1969",
+      "nota": "Fachada amarela — cores que envelheceram juntas",
+      "orient": "landscape",
+      "span": 7,
+      "destaque": false
+    },
+    {
+      "src": "https://images.unsplash.com/photo-1590522427073-1afdcb897df3",
+      "alt": "Roadster Austin-Healey em preto e branco, foco no para-brisa e volante",
+      "modelo": "Austin-Healey 100",
+      "ano": "1956",
+      "nota": "Filme 35mm — grão de verdade",
+      "orient": "portrait",
+      "span": 5,
+      "destaque": false
     }
   ],
-  "servicos": [
+  "ensaios": [
     {
-      "titulo": "Catalogo para concessionarias",
-      "descricao": "Sessao padronizada para estoque de veiculos, entrega rapida e consistente para o site e marketplaces."
+      "titulo": "Ensaio de coleção",
+      "descricao": "Um retrato autoral do seu clássico: locação escolhida a dedo, luz construída e o carro tratado como personagem — não como produto."
     },
     {
-      "titulo": "Colecionador e clássicos",
-      "descricao": "Ensaio autoral para veiculos de colecao, com direcao de arte e locacao sob medida."
+      "titulo": "Encontros & exposições",
+      "descricao": "Cobertura artística de encontros de antigomobilismo: o cromo, os detalhes e as pessoas que mantêm os clássicos na rua."
     },
     {
-      "titulo": "Campanhas e marca",
-      "descricao": "Producao para montadoras e marcas do setor automotivo, do briefing a entrega final."
+      "titulo": "Restauração documentada",
+      "descricao": "O renascimento do carro registrado em capítulos — da chegada à oficina até a primeira volta de chave."
     }
   ]
 }

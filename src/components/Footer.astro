@@ -3,67 +3,97 @@ const year = new Date().getFullYear();
 ---
 
 <footer class="site-footer" id="contato">
-  <div class="container grid">
-    <div>
-      <h3>Vamos fotografar seu carro.</h3>
-      <p class="muted">
-        Atendimento para concessionarias, colecionadores e marcas.
-      </p>
-    </div>
-    <div class="contact">
-      <a href="mailto:contato@seudominio.com.br">contato@seudominio.com.br</a>
-      <a href="https://wa.me/5500000000000">WhatsApp</a>
-      <a href="https://instagram.com/seuinstagram">Instagram</a>
+  <div class="container topo reveal">
+    <p class="plate">Contato</p>
+    <h2>
+      Seu clássico merece <em>um retrato</em>.
+    </h2>
+    <p class="lede">
+      Conte a história do seu carro — ano, modelo e o que ele significa para
+      você. O ensaio começa por aí.
+    </p>
+    <div class="contatos">
+      <a class="plate acao" href="mailto:contato@aragaoauto.com"
+        >contato@aragaoauto.com</a
+      >
+      <a class="plate acao" href="https://wa.me/5519987222761"
+        >WhatsApp · (19) 98722-2761</a
+      >
+      <a class="plate acao" href="https://instagram.com/aragao.auto"
+        >@aragao.auto</a
+      >
     </div>
   </div>
-  <div class="container">
-    <p class="legal">&copy; {year} - Todos os direitos reservados.</p>
+  <div class="container base">
+    <p class="legal">
+      © {year} Aragão — fotografia de clássicos. Todos os direitos reservados.
+    </p>
+    <p class="legal assinatura">Feito devagar, como restauração.</p>
   </div>
 </footer>
 
 <style>
   .site-footer {
-    border-top: 1px solid var(--border);
-    padding: 64px 0 24px;
-    margin-top: 96px;
+    border-top: 1px solid var(--linha);
+    margin-top: 120px;
+    background: var(--fosso);
   }
 
-  .grid {
+  .topo {
+    padding-top: 96px;
+    padding-bottom: 72px;
+  }
+
+  h2 {
+    font-size: clamp(2.2rem, 5.5vw, 4rem);
+    max-width: 14ch;
+    margin: 28px 0 20px;
+  }
+
+  .lede {
+    color: var(--cromo);
+    max-width: 44ch;
+    margin: 0 0 40px;
+  }
+
+  .contatos {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+  }
+
+  .acao {
+    color: var(--marfim);
+    transition:
+      border-color 0.25s ease,
+      color 0.25s ease;
+  }
+
+  .acao:hover {
+    border-color: var(--latao);
+    color: var(--marfim);
+  }
+
+  .base {
     display: flex;
     justify-content: space-between;
-    align-items: flex-start;
     flex-wrap: wrap;
-    gap: 32px;
-    padding-bottom: 32px;
-  }
-
-  .muted {
-    color: var(--fg-muted);
-    max-width: 32ch;
-  }
-
-  .contact {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-    align-items: flex-end;
-    font-size: 0.9rem;
-  }
-
-  .contact a:hover {
-    color: var(--accent);
+    gap: 8px;
+    border-top: 1px solid var(--linha);
+    padding-top: 22px;
+    padding-bottom: 22px;
   }
 
   .legal {
-    color: var(--fg-muted);
-    font-size: 0.75rem;
-    border-top: 1px solid var(--border);
-    padding-top: 24px;
+    color: var(--cromo);
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    letter-spacing: 0.08em;
+    margin: 0;
   }
 
-  @media (max-width: 640px) {
-    .contact {
-      align-items: flex-start;
-    }
+  .assinatura {
+    font-style: normal;
+    color: var(--latao);
   }
 </style>

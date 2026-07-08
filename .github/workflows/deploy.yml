@@ -1,0 +1,53 @@
+name: Build e Deploy no GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  # Permite disparar o build via webhook do CMS quando o profissional
+  # publicar novas imagens/paginas (repository_dispatch) alem do push normal.
+  repository_dispatch:
+    types: [cms-publish]
+  workflow_dispatch: {}
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      # enablement: true ativa o GitHub Pages do repo na primeira execucao.
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: 'npm'
+
+      - run: npm ci
+      - run: npm run build
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: Deploy
+        id: deployment
+        uses: actions/deploy-pages@v4

@@ -9,7 +9,7 @@ interface Props {
 
 const {
   title,
-  description = 'Fotografia profissional de automoveis para empresas e colecionadores.',
+  description = 'Ensaios autorais de carros antigos — colecionadores, encontros de clássicos e restaurações documentadas.',
 } = Astro.props;
 ---
 
@@ -22,8 +22,19 @@ const {
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
 
-    <!-- Preconnect ao dominio de imagens (CDN) quando conectado ao CMS -->
-    <link rel="preconnect" href="https://res.cloudinary.com" crossorigin />
+    <link rel="preconnect" href="https://images.unsplash.com" crossorigin />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&family=Archivo:wght@400;500;600&family=Chivo+Mono:wght@400;500&display=swap"
+      rel="stylesheet"
+    />
+
+    <!-- Marca a presenca de JS para que os efeitos de reveal so escondam
+         conteudo quando houver script para revela-lo de volta. -->
+    <script is:inline>
+      document.documentElement.classList.add('js');
+    </script>
   </head>
   <body>
     <Header />
@@ -31,19 +42,44 @@ const {
       <slot />
     </main>
     <Footer />
+
+    <script>
+      // Reveal no scroll: adiciona .is-visible quando o elemento entra na viewport.
+      const els = document.querySelectorAll('.reveal');
+      if ('IntersectionObserver' in window) {
+        const io = new IntersectionObserver(
+          (entries) => {
+            for (const entry of entries) {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                io.unobserve(entry.target);
+              }
+            }
+          },
+          { threshold: 0.12, rootMargin: '0px 0px -40px 0px' }
+        );
+        els.forEach((el) => io.observe(el));
+      } else {
+        els.forEach((el) => el.classList.add('is-visible'));
+      }
+    </script>
   </body>
 </html>
 
 <style is:global>
   :root {
-    --bg: #0b0b0c;
-    --bg-elevated: #131315;
-    --fg: #f2f0ec;
-    --fg-muted: #9a9691;
-    --accent: #c9a24b;
-    --border: #232325;
-    --font-display: 'Georgia', 'Times New Roman', serif;
-    --font-body: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    /* Paleta "garagem de colecao": verniz verde-ingles, marfim, cromo, rubi, latao */
+    --verniz: #111812;
+    --fosso: #0a0e0b;
+    --marfim: #ece4d3;
+    --cromo: #8e988c;
+    --rubi: #b6412c;
+    --latao: #a58a52;
+    --linha: rgba(236, 228, 211, 0.14);
+
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Archivo', -apple-system, 'Segoe UI', sans-serif;
+    --font-mono: 'Chivo Mono', 'Courier New', monospace;
   }
 
   * {
@@ -54,10 +90,16 @@ const {
   body {
     margin: 0;
     padding: 0;
-    background: var(--bg);
-    color: var(--fg);
+    background: var(--verniz);
+    color: var(--marfim);
     font-family: var(--font-body);
+    line-height: 1.6;
     -webkit-font-smoothing: antialiased;
+  }
+
+  ::selection {
+    background: var(--rubi);
+    color: var(--marfim);
   }
 
   img {
@@ -69,14 +111,28 @@ const {
   h2,
   h3 {
     font-family: var(--font-display);
-    font-weight: 400;
-    letter-spacing: 0.02em;
+    font-weight: 340;
+    font-variation-settings: 'opsz' 144;
+    letter-spacing: 0.01em;
+    line-height: 1.08;
     margin: 0;
+  }
+
+  h1 em,
+  h2 em,
+  h3 em {
+    font-style: italic;
+    color: var(--rubi);
   }
 
   a {
     color: inherit;
     text-decoration: none;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--latao);
+    outline-offset: 3px;
   }
 
   .container {
@@ -85,10 +141,64 @@ const {
     padding: 0 24px;
   }
 
-  .eyebrow {
+  /* Plaqueta de identificacao: a assinatura visual do site.
+     Mono, maiusculas, borda fina e rebites de latao nos quatro cantos,
+     como uma placa parafusada no cofre do motor. */
+  .plate {
+    font-family: var(--font-mono);
+    font-size: 0.68rem;
+    font-weight: 500;
+    letter-spacing: 0.16em;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    font-size: 0.75rem;
-    color: var(--accent);
+    color: var(--cromo);
+    border: 1px solid var(--linha);
+    padding: 9px 20px;
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background-color: rgba(10, 14, 11, 0.5);
+    background-image:
+      radial-gradient(circle, #d9c491 1px, var(--latao) 1.5px, transparent 2.1px),
+      radial-gradient(circle, #d9c491 1px, var(--latao) 1.5px, transparent 2.1px),
+      radial-gradient(circle, #d9c491 1px, var(--latao) 1.5px, transparent 2.1px),
+      radial-gradient(circle, #d9c491 1px, var(--latao) 1.5px, transparent 2.1px);
+    background-repeat: no-repeat;
+    background-size: 6px 6px;
+    background-position:
+      4px 4px,
+      calc(100% - 4px) 4px,
+      4px calc(100% - 4px),
+      calc(100% - 4px) calc(100% - 4px);
+  }
+
+  /* Reveal no scroll (so ativa quando ha JS presente) */
+  html.js .reveal {
+    opacity: 0;
+    transform: translateY(26px);
+    transition:
+      opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+      transform 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+    transition-delay: var(--delay, 0ms);
+  }
+
+  html.js .reveal.is-visible {
+    opacity: 1;
+    transform: none;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html.js .reveal {
+      opacity: 1;
+      transform: none;
+      transition: none;
+    }
+
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
   }
 </style>

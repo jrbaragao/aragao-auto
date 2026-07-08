@@ -1,17 +1,22 @@
 ---
+import { withBase } from '../lib/url';
+
 const nav = [
-  { href: '/', label: 'Home' },
-  { href: '/portfolio', label: 'Portfolio' },
-  { href: '/servicos', label: 'Servicos' },
+  { href: '/portfolio', label: 'Acervo' },
+  { href: '/servicos', label: 'Ensaios' },
+  { href: '/contrate', label: 'Contrate' },
   { href: '/#contato', label: 'Contato' },
 ];
 ---
 
 <header class="site-header">
   <div class="container bar">
-    <a href="/" class="logo">LENTE<span>&amp;</span>CHASSI</a>
+    <a href={withBase('/')} class="logo">
+      <span class="nome">Aragão</span>
+      <span class="tag">fotografia de clássicos</span>
+    </a>
     <nav>
-      {nav.map((item) => <a href={item.href}>{item.label}</a>)}
+      {nav.map((item) => <a href={withBase(item.href)}>{item.label}</a>)}
     </nav>
   </div>
 </header>
@@ -21,50 +26,73 @@ const nav = [
     position: sticky;
     top: 0;
     z-index: 50;
-    background: rgba(11, 11, 12, 0.85);
-    backdrop-filter: blur(8px);
-    border-bottom: 1px solid var(--border);
+    background: rgba(17, 24, 18, 0.82);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--linha);
   }
 
   .bar {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    height: 72px;
+    height: 76px;
   }
 
   .logo {
-    font-family: var(--font-display);
-    font-size: 1.1rem;
-    letter-spacing: 0.15em;
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
   }
 
-  .logo span {
-    color: var(--accent);
-    margin: 0 2px;
+  .nome {
+    font-family: var(--font-display);
+    font-style: italic;
+    font-weight: 420;
+    font-size: 1.45rem;
+    letter-spacing: 0.02em;
+  }
+
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.6rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--cromo);
+    border-left: 1px solid var(--linha);
+    padding-left: 14px;
   }
 
   nav {
     display: flex;
-    gap: 28px;
-    font-size: 0.85rem;
+    gap: 32px;
+    font-family: var(--font-mono);
+    font-size: 0.72rem;
     text-transform: uppercase;
-    letter-spacing: 0.08em;
+    letter-spacing: 0.16em;
   }
 
   nav a {
-    color: var(--fg-muted);
-    transition: color 0.2s ease;
+    color: var(--cromo);
+    padding-bottom: 3px;
+    border-bottom: 1px solid transparent;
+    transition:
+      color 0.25s ease,
+      border-color 0.25s ease;
   }
 
   nav a:hover {
-    color: var(--fg);
+    color: var(--marfim);
+    border-color: var(--latao);
   }
 
   @media (max-width: 640px) {
+    .tag {
+      display: none;
+    }
+
     nav {
-      gap: 14px;
-      font-size: 0.7rem;
+      gap: 18px;
+      font-size: 0.64rem;
     }
   }
 </style>
