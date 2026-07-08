@@ -1,0 +1,44 @@
+{
+  "_comment": "Mock de dados. Em producao este arquivo eh substituido por uma chamada ao CMS headless (Payload/Sanity) feita em build-time. As URLs de imagem ja vem otimizadas pelo CDN.",
+  "destaques": [
+    {
+      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_1200/samples/imagecon-group.jpg",
+      "alt": "Carro esportivo preto em estudio, iluminacao dramatica",
+      "tag": "Estudio"
+    },
+    {
+      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/landscapes/nature-mountains.jpg",
+      "alt": "Carro classico ao entardecer em estrada de montanha",
+      "tag": "Externa"
+    },
+    {
+      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/landscapes/architecture-signs.jpg",
+      "alt": "Detalhe de roda e acabamento",
+      "tag": "Detalhe"
+    },
+    {
+      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/animals/three-dogs.jpg",
+      "alt": "Colecionador ao lado do veiculo restaurado",
+      "tag": "Colecionador"
+    },
+    {
+      "src": "https://res.cloudinary.com/demo/image/upload/f_auto,q_auto,w_800/samples/food/dessert.jpg",
+      "alt": "Interior em couro, foco no painel",
+      "tag": "Interior"
+    }
+  ],
+  "servicos": [
+    {
+      "titulo": "Catalogo para concessionarias",
+      "descricao": "Sessao padronizada para estoque de veiculos, entrega rapida e consistente para o site e marketplaces."
+    },
+    {
+      "titulo": "Colecionador e clássicos",
+      "descricao": "Ensaio autoral para veiculos de colecao, com direcao de arte e locacao sob medida."
+    },
+    {
+      "titulo": "Campanhas e marca",
+      "descricao": "Producao para montadoras e marcas do setor automotivo, do briefing a entrega final."
+    }
+  ]
+}

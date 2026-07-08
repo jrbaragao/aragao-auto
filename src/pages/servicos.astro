@@ -1,0 +1,62 @@
+---
+import Layout from '../layouts/Layout.astro';
+import data from '../data/portfolio.json';
+---
+
+<Layout title="Servicos | LENTE&CHASSI">
+  <section class="container header-section">
+    <p class="eyebrow">Servicos</p>
+    <h1>Como posso ajudar seu projeto</h1>
+  </section>
+
+  <section class="container service-grid">
+    {
+      data.servicos.map((s) => (
+        <div class="service-card">
+          <h3>{s.titulo}</h3>
+          <p>{s.descricao}</p>
+        </div>
+      ))
+    }
+  </section>
+</Layout>
+
+<style>
+  .header-section {
+    padding: 64px 24px 32px;
+  }
+
+  h1 {
+    font-size: clamp(1.8rem, 4vw, 2.6rem);
+    margin-top: 12px;
+  }
+
+  .service-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+    padding-bottom: 64px;
+  }
+
+  .service-card {
+    border: 1px solid var(--border);
+    padding: 28px;
+  }
+
+  .service-card h3 {
+    font-size: 1.15rem;
+    margin-bottom: 12px;
+  }
+
+  .service-card p {
+    color: var(--fg-muted);
+    font-size: 0.9rem;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 800px) {
+    .service-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
