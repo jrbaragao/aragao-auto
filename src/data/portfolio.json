@@ -25,7 +25,7 @@
       "alt": "Mercedes-Benz 280 SL Pagode verde sob luz dramática em fundo escuro",
       "modelo": "Mercedes-Benz 280 SL",
       "ano": "1967",
-      "nota": "Ensaio noturno — o verde-inglês some no escuro, sobra o cromo",
+      "nota": "Ensaio noturno: o verde-inglês some no escuro, sobra o cromo",
       "orient": "portrait",
       "span": 5,
       "destaque": false
@@ -35,7 +35,7 @@
       "alt": "Jaguar XJ6 verde-sálvia de perfil diante de parede de tijolos aparentes",
       "modelo": "Jaguar XJ6 Série I",
       "ano": "1973",
-      "nota": "Centro histórico — tijolo e verniz, quase a mesma idade",
+      "nota": "Centro histórico: tijolo e verniz, quase a mesma idade",
       "orient": "landscape",
       "span": 7,
       "destaque": true
@@ -45,7 +45,7 @@
       "alt": "Volante e painel vermelhos de Corvette C1 conversível em close",
       "modelo": "Chevrolet Corvette C1",
       "ano": "1962",
-      "nota": "Detalhe do volante — verniz rubi e instrumentos originais",
+      "nota": "Detalhe do volante: verniz rubi e instrumentos originais",
       "orient": "landscape",
       "span": 7,
       "destaque": true
@@ -55,7 +55,7 @@
       "alt": "Volkswagen Fusca verde estacionado diante de casa de telhado colonial",
       "modelo": "Volkswagen Fusca 1300",
       "ano": "1972",
-      "nota": "Interior do Brasil — o clássico que toda família conheceu",
+      "nota": "Interior do Brasil: o clássico que toda família conheceu",
       "orient": "portrait",
       "span": 5,
       "destaque": true
@@ -65,7 +65,7 @@
       "alt": "Picape Chevrolet 3100 azul com pátina entre videiras ao entardecer",
       "modelo": "Chevrolet 3100",
       "ano": "1940",
-      "nota": "Fim de tarde no vinhedo — pátina que nenhuma pintura imita",
+      "nota": "Fim de tarde no vinhedo: pátina que nenhuma pintura imita",
       "orient": "portrait",
       "span": 5,
       "destaque": true
@@ -75,7 +75,7 @@
       "alt": "Mercedes-Benz 300 SL prata com portas asa de gaivota abertas em museu",
       "modelo": "Mercedes-Benz 300 SL",
       "ano": "1955",
-      "nota": "Asas de gaivota — concreto, prata e silêncio",
+      "nota": "Asas de gaivota: concreto, prata e silêncio",
       "orient": "landscape",
       "span": 7,
       "destaque": true
@@ -85,7 +85,7 @@
       "alt": "Frente de Cadillac LaSalle 1939 em preto e branco, faróis acesos na penumbra",
       "modelo": "Cadillac LaSalle",
       "ano": "1939",
-      "nota": "Prata e sombra — estudo em preto e branco",
+      "nota": "Prata e sombra: estudo em preto e branco",
       "orient": "portrait",
       "span": 5,
       "destaque": false
@@ -95,7 +95,7 @@
       "alt": "Roda com pneu faixa branca e calota cromada de sedã americano dos anos 50 sobre grama",
       "modelo": "Oldsmobile Ninety-Eight",
       "ano": "1959",
-      "nota": "Faixa branca — o detalhe que data uma década",
+      "nota": "Faixa branca: o detalhe que data uma década",
       "orient": "landscape",
       "span": 7,
       "destaque": false
@@ -105,7 +105,7 @@
       "alt": "Farol redondo cromado de Porsche 911 azul-céu em close",
       "modelo": "Porsche 911",
       "ano": "1973",
-      "nota": "Estudo de farol — vidro estriado, cromo e céu",
+      "nota": "Estudo de farol: vidro estriado, cromo e céu",
       "orient": "portrait",
       "span": 4,
       "destaque": false
@@ -115,7 +115,7 @@
       "alt": "Emblema Chevelle e faróis duplos de Chevrolet vermelha ao sol",
       "modelo": "Chevrolet Chevelle",
       "ano": "1967",
-      "nota": "Cromo ao sol — a tipografia que Detroit assinava",
+      "nota": "Cromo ao sol: a tipografia que Detroit assinava",
       "orient": "portrait",
       "span": 4,
       "destaque": false
@@ -125,7 +125,7 @@
       "alt": "Ford Mustang 1965 vermelho sob árvores de outono com folhas no chão",
       "modelo": "Ford Mustang Hardtop",
       "ano": "1965",
-      "nota": "Outono — vermelho contra folhas secas",
+      "nota": "Outono: vermelho contra folhas secas",
       "orient": "portrait",
       "span": 4,
       "destaque": false
@@ -135,7 +135,7 @@
       "alt": "Painel, volante e câmbio de Chevelle SS restaurada, cromo e couro preto",
       "modelo": "Chevrolet Chevelle SS",
       "ano": "1967",
-      "nota": "Painel e câmbio — restauração de concurso",
+      "nota": "Painel e câmbio: restauração de concurso",
       "orient": "landscape",
       "span": 7,
       "destaque": false
@@ -145,7 +145,7 @@
       "alt": "Chevrolet Impala preta rebaixada em estacionamento vazio ao pôr do sol",
       "modelo": "Chevrolet Impala",
       "ano": "1963",
-      "nota": "Céu cor-de-rosa — o asfalto como estúdio",
+      "nota": "Céu cor-de-rosa: o asfalto como estúdio",
       "orient": "portrait",
       "span": 5,
       "destaque": true
@@ -155,7 +155,7 @@
       "alt": "Volkswagen Fusca verde-água de perfil diante de fachada amarela com portas de madeira",
       "modelo": "Volkswagen Fusca",
       "ano": "1969",
-      "nota": "Fachada amarela — cores que envelheceram juntas",
+      "nota": "Fachada amarela: cores que envelheceram juntas",
       "orient": "landscape",
       "span": 7,
       "destaque": false
@@ -165,7 +165,7 @@
       "alt": "Roadster Austin-Healey em preto e branco, foco no para-brisa e volante",
       "modelo": "Austin-Healey 100",
       "ano": "1956",
-      "nota": "Filme 35mm — grão de verdade",
+      "nota": "Filme 35mm: grão de verdade",
       "orient": "portrait",
       "span": 5,
       "destaque": false
@@ -174,7 +174,7 @@
   "ensaios": [
     {
       "titulo": "Ensaio de coleção",
-      "descricao": "Um retrato autoral do seu clássico: locação escolhida a dedo, luz construída e o carro tratado como personagem — não como produto."
+      "descricao": "Um retrato autoral do seu clássico: locação escolhida a dedo, luz construída e o carro tratado como personagem, não como produto."
     },
     {
       "titulo": "Encontros & exposições",
@@ -182,7 +182,7 @@
     },
     {
       "titulo": "Restauração documentada",
-      "descricao": "O renascimento do carro registrado em capítulos — da chegada à oficina até a primeira volta de chave."
+      "descricao": "O renascimento do carro registrado em capítulos: da chegada à oficina até a primeira volta de chave."
     }
   ]
 }

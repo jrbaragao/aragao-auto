@@ -9,7 +9,7 @@ const heroUrl = (w: number) =>
   `${data.hero.src}?auto=format&fit=crop&q=80&w=${w}`;
 ---
 
-<Layout title="Aragão — Fotografia de carros antigos">
+<Layout title="Aragão · Fotografia de carros antigos">
   <!-- HERO: revelação de câmara escura. A Pagode verde emerge do fundo
        verde-preto; o título sobe linha a linha. -->
   <section class="hero">
@@ -30,14 +30,14 @@ const heroUrl = (w: number) =>
         <span class="linha"><span class="sobe"><em>A luz</em> continua.</span></span>
       </h1>
       <p class="lede">
-        Ensaios autorais de carros antigos — da garagem do colecionador aos
+        Ensaios autorais de carros antigos, da garagem do colecionador aos
         grandes encontros de clássicos. Cada carro entra no acervo com ficha
         própria: modelo, ano e a história de quem o manteve vivo.
       </p>
       <a class="cta" href={withBase('/portfolio')}>Ver o acervo <span aria-hidden="true">→</span></a>
     </div>
     <p class="plate hero-ficha" aria-hidden="true">
-      {data.hero.modelo} · {data.hero.ano} — {data.hero.nota}
+      {data.hero.modelo} · {data.hero.ano} · {data.hero.nota}
     </p>
   </section>
 
@@ -69,7 +69,7 @@ const heroUrl = (w: number) =>
       <p class="plate">Manifesto</p>
       <blockquote>
         Não fotografo carros. Fotografo <em>o cuidado</em> de quem os manteve
-        vivos — o cromo polido de domingo, a pátina que ninguém teve coragem
+        vivos: o cromo polido de domingo, a pátina que ninguém teve coragem
         de apagar.
       </blockquote>
     </div>
